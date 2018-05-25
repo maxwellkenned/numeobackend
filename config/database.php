@@ -52,6 +52,9 @@ return [
             'prefix' => '',
             'strict' => true,
             'engine' => null,
+            'options' => array(
+                PDO::MYSQL_ATTR_SSL_KEY => '/BaltimoreCyberTrustRoot.crt.pem.txt' //CERTIFICADO PARA CONEXAO COM O BANCO AZURE
+            )
         ],
 
         'pgsql' => [
