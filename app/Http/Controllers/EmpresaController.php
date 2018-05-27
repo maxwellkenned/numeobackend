@@ -15,10 +15,7 @@ class EmpresaController extends Controller
      */
     public function index()
     {
-        $dados = DB::table('inf_empresas')
-                  ->join('inf_pessoas', 'inf_empresas.id_pessoa', '=', 'inf_pessoas.id_pessoa')
-                  ->select('inf_empresas.*', 'inf_pessoas.nome_pessoa')
-                  ->get();
+        $dados = Empresa::all();
 
         return response()->json($dados);
     }
