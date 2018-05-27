@@ -23,6 +23,7 @@ class inf_clientes extends Model
         'endereco_numero',
         'complemento',
         'bairro',
+        'cidade',
         'estado',
         'pais',
     ];
