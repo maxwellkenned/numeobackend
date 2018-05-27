@@ -15,10 +15,10 @@ class CreateInfContasPagarsTable extends Migration
     {
         Schema::create('inf_contas_pagar', function (Blueprint $table) {
             $table->increments('id_conta_pagar');
-            $table->integer('id_conta');
-            $table->integer('id_ds_conta');
-            $table->integer('id_produto');
-            $table->integer('prolabore');
+            $table->unsignedInteger('id_conta');
+            $table->unsignedInteger('id_ds_conta');
+            $table->unsignedInteger('id_produto');
+            $table->unsignedInteger('prolabore');
             $table->string('ds_pagamento');
             $table->double('valor', 8, 2);
             $table->integer('parcelas');

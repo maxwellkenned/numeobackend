@@ -14,8 +14,10 @@ class CreateInfColaboradoresTable extends Migration
     public function up()
     {
         Schema::create('inf_colaboradores', function (Blueprint $table) {
-            $table->integer('id_empresa');
-            $table->integer('id_funcao');
+            $table->increments('id_colaborador');
+            $table->unsignedInteger('id_pessoa');
+            $table->unsignedInteger('id_empresa');
+            $table->unsignedInteger('id_funcao');
             $table->integer('id_conjuge');
             $table->date('dt_admissao');
             $table->double('salario', 8, 2);
@@ -28,6 +30,7 @@ class CreateInfColaboradoresTable extends Migration
             $table->foreign('id_empresa')->references('id_empresa')->on('inf_empresas');
             $table->foreign('id_funcao')->references('id_funcao')->on('funcoes');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Illuminate\Support\Facades\DB;
-use App\Models\inf_pessoas as Pessoa;
+use App\Models\inf_clientes as Cliente;
 
 class ClienteController extends Controller
 {
@@ -16,8 +15,7 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $colaborador = DB::table('inf_colaboradores')->pluck('id_pessoa');
-        $clientes = DB::table('inf_pessoas')->whereNotIn('id_pessoa', $colaborador)->get();
+        $clientes = Cliente::all();
         return response()->json($clientes);
     }
 
@@ -29,9 +27,9 @@ class ClienteController extends Controller
      */
     public function store(Request $request){
       $dados = $request->all();
-      $pessoa = Pessoa::create($dados);
-      if($pessoa){
-        return response()->json(["cliente"=>$pessoa, "status"=>true]);
+      $cliente = Cliente::create($dados);
+      if($cliente){
+        return response()->json(["cliente"=>$cliente, "status"=>true]);
       }else{
         return response()->json(["data"=>"Erro ao cadastrar cliente", "status"=>false]);
       }

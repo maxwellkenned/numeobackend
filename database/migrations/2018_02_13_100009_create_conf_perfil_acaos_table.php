@@ -14,8 +14,8 @@ class CreateConfPerfilAcaosTable extends Migration
     public function up()
     {
         Schema::create('conf_perfil_acao', function (Blueprint $table) {
-            $table->integer('id_perfil');
-            $table->integer('id_acao');
+            $table->unsignedInteger('id_perfil');
+            $table->unsignedInteger('id_acao');
             $table->primary(['id_perfil','id_acao']);
             $table->foreign('id_perfil')->references('id_perfil')->on('conf_perfil');
             $table->foreign('id_acao')->references('id_acao')->on('conf_acoes');

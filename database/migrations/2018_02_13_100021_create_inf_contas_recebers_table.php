@@ -15,8 +15,8 @@ class CreateInfContasRecebersTable extends Migration
     {
         Schema::create('inf_contas_receber', function (Blueprint $table) {
           $table->increments('id_conta_receber');
-          $table->integer('id_conta');
-          $table->integer('id_servico');
+          $table->unsignedInteger('id_conta');
+          $table->unsignedInteger('id_servico');
           $table->string('ds_recebimento');
           $table->double('valor', 8, 2);
           $table->integer('parcelas');

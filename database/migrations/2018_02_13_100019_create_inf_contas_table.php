@@ -15,7 +15,7 @@ class CreateInfContasTable extends Migration
     {
         Schema::create('inf_contas', function (Blueprint $table) {
             $table->increments('id_conta');
-            $table->integer('id_empresa');
+            $table->unsignedInteger('id_empresa');
             $table->string('ds_conta');
             $table->double('saldo', 8, 2);
             $table->foreign('id_empresa')->references('id_empresa')->on('inf_empresas');            

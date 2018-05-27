@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInfNotasFiscaisTable extends Migration
+class CreateInfContatoPfsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateInfNotasFiscaisTable extends Migration
      */
     public function up()
     {
-        Schema::create('inf_notas_fiscais', function (Blueprint $table) {
-            $table->increments('id_nota');
-            $table->integer('id_empresa');
-            $table->foreign('id_empresa')->references('id_empresa')->on('inf_empresas');
+        Schema::create('inf_contato_pf', function (Blueprint $table) {
+            $table->increments('id_contato');
+            $table->unsignedInteger('id_pessoa');
+            $table->string('ds_pessoa');
+            $table->foreign('id_pessoa')->references('id_pessoa')->on('inf_pessoas');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateInfNotasFiscaisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('inf_notas_fiscais');
+        Schema::dropIfExists('inf_contato_pfs');
     }
 }

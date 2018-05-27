@@ -34,26 +34,35 @@ class ColaboradorController extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-      $dados = $request->all();
-      $pessoa = Pessoa::create($dados);
-      $senha =  $dados['senha'] ? Hash::make($dados['senha']) : null;
-      if($pessoa){
+
+        DB::beginTransaction();
+
+        $dados = $request->all();
+
+        $pessoa = Pessoa::create($dados);
+
+        $senha =  $dados['senha'] ? Hash::make($dados['senha']) : null;
+
         $dados["id_pessoa"] = $pessoa->id;
-        $colaborador = Colaborador::create($dados);
+
         $usuario = [
-          'id_pessoa'=> $pessoa->id,
-          'usuario'=> $pessoa->email,
-          'senha'=> $senha
+            'id_pessoa'=> $pessoa->id,
+            'usuario'=> $pessoa->email,
+            'senha'=> $senha
         ];
+
+        $colaborador = Colaborador::create($dados);
+
+
         $user = Usuario::create($usuario);
-        if($colaborador){
-          return response()->json(["pessoa"=>$pessoa, "colaborador"=>$colaborador, "usuario"=>$user, "status"=>true]);
-        }else{
+
+        if ($pessoa && $colaborador && $user) {
+            DB::commit();
+            return response()->json(["pessoa"=>$pessoa, "colaborador"=>$colaborador, "usuario"=>$user, "status"=>true]);
+        } else {
+            DB::rollback();
           return response()->json(["data"=>"Erro ao cadastrar colaborador", "status"=>false]);
         }
-      }else{
-        return response()->json(["data"=>"Erro ao cadastrar pessoa", "status"=>false]);
-      }
     }
 
     /**

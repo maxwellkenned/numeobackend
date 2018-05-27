@@ -15,7 +15,7 @@ class CreateConfControladorsTable extends Migration
     {
         Schema::create('conf_controlador', function (Blueprint $table) {
             $table->increments('id_controlador');
-            $table->integer('id_modulo');
+            $table->unsignedInteger('id_modulo');
             $table->string('ds_controlador');
             $table->foreign('id_modulo')->references('id_modulo')->on('conf_modulo');
             $table->timestamps();

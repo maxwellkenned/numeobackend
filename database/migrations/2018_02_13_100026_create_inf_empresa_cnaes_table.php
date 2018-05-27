@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInfServicosTable extends Migration
+class CreateInfEmpresaCnaesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateInfServicosTable extends Migration
      */
     public function up()
     {
-        Schema::create('inf_servicos', function (Blueprint $table) {
-            $table->increments('id_servico');
-            $table->integer('id_empresa');
-            $table->string('ds_servico');
-            $table->double('vl_servico', 8, 2);
+        Schema::create('inf_empresa_cnae', function (Blueprint $table) {
+            $table->unsignedInteger('id_empresa');
+            $table->unsignedInteger('id_cnae');
+            $table->primary(['id_empresa', 'id_cnae']);
             $table->foreign('id_empresa')->references('id_empresa')->on('inf_empresas');
+            $table->foreign('id_cnae')->references('id_cnae')->on('cnae');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateInfServicosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('inf_servicos');
+        Schema::dropIfExists('inf_empresa_cnaes');
     }
 }

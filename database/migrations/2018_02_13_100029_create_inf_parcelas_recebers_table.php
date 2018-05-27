@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInfParcelasPagarsTable extends Migration
+class CreateInfParcelasRecebersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,18 @@ class CreateInfParcelasPagarsTable extends Migration
      */
     public function up()
     {
-        Schema::create('inf_parcelas_pagar', function (Blueprint $table) {
+        Schema::create('inf_parcelas_receber', function (Blueprint $table) {
             $table->increments('id_parcela');
-            $table->integer('id_conta_pagar');
+            $table->unsignedInteger('id_conta_receber');
             $table->integer('parcela');
             $table->double('valor', 8, 2);
             $table->double('valor_juros', 8, 2);
             $table->double('valor_desconto', 8, 2);
             $table->double('valor_total', 8, 2);
             $table->datetime('dt_vencimento');
-            $table->datetime('dt_pagamento');
-            $table->enum('status', ['P', 'A', 'C']);
-            $table->foreign('id_conta_pagar')->references('id_conta_pagar')->on('inf_conta_pagar');
+            $table->datetime('dt_recebimento');
+            $table->enum('status', ['R', 'A', 'C']);
+            $table->foreign('id_conta_receber')->references('id_conta_receber')->on('inf_contas_receber');
             $table->timestamps();
         });
     }
@@ -36,6 +36,6 @@ class CreateInfParcelasPagarsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('inf_parcelas_pagars');
+        Schema::dropIfExists('inf_parcelas_recebers');
     }
 }

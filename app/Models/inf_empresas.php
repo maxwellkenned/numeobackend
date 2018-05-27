@@ -3,16 +3,19 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class inf_empresas extends Model
 {
-  protected $fillable = [
+    use SoftDeletes;
+
+    protected $fillable = [
     'id_pessoa',
     'cnpj',
     'nome_fantasia',
     'razao_social',
     'email'
-  ];
-  protected $primaryKey = 'id_empresa';
-  protected $table = 'inf_empresas';
+    ];
+    protected $primaryKey = 'id_empresa';
+    protected $table = 'inf_empresas';
 }

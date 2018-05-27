@@ -15,7 +15,7 @@ class CreateInfDocumentosContabeisTable extends Migration
     {
         Schema::create('inf_documentos_contabeis', function (Blueprint $table) {
             $table->increments('id_documento');
-            $table->integer('id_conta_pagar');
+            $table->unsignedInteger('id_conta_pagar');
             $table->string('local');
             $table->foreign('id_conta_pagar')->references('id_conta_pagar')->on('inf_contas_pagar');
             $table->timestamps();

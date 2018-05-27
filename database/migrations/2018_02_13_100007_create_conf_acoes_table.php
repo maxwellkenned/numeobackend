@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInfContatoPjsTable extends Migration
+class CreateConfAcoesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateInfContatoPjsTable extends Migration
      */
     public function up()
     {
-        Schema::create('inf_contato_pj', function (Blueprint $table) {
-            $table->increments('id_contato');
-            $table->integer('id_pessoa');
-            $table->string('ds_pessoa');
-            $table->foreign('id_pessoa')->references('id_pessoa')->on('inf_pessoas');
+        Schema::create('conf_acoes', function (Blueprint $table) {
+            $table->increments('id_acao');
+            $table->unsignedInteger('id_controlador');
+            $table->string('ds_acao');
+            $table->foreign('id_controlador')->references('id_controlador')->on('conf_controlador');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateInfContatoPjsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('inf_contato_pjs');
+        Schema::dropIfExists('conf_acoes');
     }
 }

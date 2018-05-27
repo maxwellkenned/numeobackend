@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInfAuxiliosTable extends Migration
+class CreateInfSociosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateInfAuxiliosTable extends Migration
      */
     public function up()
     {
-        Schema::create('inf_auxilios', function (Blueprint $table) {
-            $table->integer('id_colaborador');
-            $table->integer('id_auxilio');
-            $table->double('vl_auxilio', 8 , 2);
-            $table->primary(['id_colaborador', 'id_auxilio']);
+        Schema::create('inf_socios', function (Blueprint $table) {
+            $table->increments('id_sociedade');
+            $table->unsignedInteger('id_empresa');
+            $table->unsignedInteger('id_colaborador');
+            $table->foreign('id_empresa')->references('id_empresa')->on('inf_empresas');
             $table->foreign('id_colaborador')->references('id_colaborador')->on('inf_colaboradores');
-            $table->foreign('id_auxilio')->references('id_auxilio')->on('auxilios');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -31,6 +31,6 @@ class CreateInfAuxiliosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('inf_auxilios');
+        Schema::dropIfExists('inf_socios');
     }
 }

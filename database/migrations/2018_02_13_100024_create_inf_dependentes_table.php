@@ -15,7 +15,7 @@ class CreateInfDependentesTable extends Migration
     {
         Schema::create('inf_dependentes', function (Blueprint $table) {
             $table->increments('id_dependente');
-            $table->integer('id_colaborador');
+            $table->unsignedInteger('id_colaborador');
             $table->string('nome_dependente');
             $table->date('dt_nascimento');
             $table->foreign('id_colaborador')->references('id_colaborador')->on('inf_colaboradores');

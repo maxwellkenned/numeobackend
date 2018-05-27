@@ -15,8 +15,8 @@ class CreateInfPessoasTable extends Migration
     {
         Schema::create('inf_pessoas', function (Blueprint $table) {
             $table->increments('id_pessoa');
-            $table->integer('id_cidade');
-            $table->integer('id_cidade_nascimento');
+            $table->unsignedInteger('id_cidade');
+            $table->unsignedInteger('id_cidade_nascimento');
             $table->string('nome_pessoa');
             $table->enum('sexo', ['F', 'M']);
             $table->char('cpf', 11);
@@ -36,6 +36,7 @@ class CreateInfPessoasTable extends Migration
             $table->foreign('id_cidade')->references('id_cidade')->on('cidade');
             $table->foreign('id_cidade_nascimento')->references('id_cidade')->on('cidade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

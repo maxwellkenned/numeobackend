@@ -15,13 +15,14 @@ class CreateInfProdutosTable extends Migration
     {
         Schema::create('inf_produtos', function (Blueprint $table) {
             $table->increments('id_produto');
-            $table->integer('id_empresa');
-            $table->integer('id_categoria');
+            $table->unsignedInteger('id_empresa');
+            $table->unsignedInteger('id_categoria');
             $table->string('ds_produto');
             $table->double('vl_produto', 8, 2);
             $table->foreign('id_empresa')->references('id_empresa')->on('inf_empresas');
             $table->foreign('id_categoria')->references('id_categoria')->on('inf_categorias_produtos');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
