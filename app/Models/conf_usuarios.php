@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace numeo\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class conf_usuario extends Model
+class conf_usuarios extends Model
 {
     protected $fillable = [
       'id_pessoa',
@@ -14,4 +14,5 @@ class conf_usuario extends Model
       'dt_expiracao',
       'status'
     ];
+    protected $table = "conf_usuarios";
 }

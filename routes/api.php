@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 */
 
 Route::resource('pessoas', 'PessoaController');
-Route::resource('colaborador', 'ColaboradorController');
+Route::resource('colaboradores', 'ColaboradorController');
 Route::resource('empresas', 'EmpresaController');
 Route::resource('servicos', 'ServicoController');
 Route::resource('clientes', 'ClienteController');

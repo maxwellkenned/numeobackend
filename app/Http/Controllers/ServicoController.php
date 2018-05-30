@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace numeo\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\inf_servicos as Servico;
+use numeo\Models\inf_servicos as Servico;
 
 class ServicoController extends Controller
 {

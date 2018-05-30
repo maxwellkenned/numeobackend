@@ -15,11 +15,11 @@ class CreateInfEmpresasTable extends Migration
     {
         Schema::create('inf_empresas', function (Blueprint $table) {
             $table->increments('id_empresa');
-            $table->integer('id_pessoa')->nullable();
-            $table->string('cnpj', 14);
+            $table->unsignedInteger('id_pessoa')->nullable();
+            $table->string('cnpj', 14)->nullable();
             $table->string('nome_fantasia');
-            $table->string('razao_social');
-            $table->string('email');
+            $table->string('razao_social')->nullable();
+            $table->string('email')->nullable();
 //            $table->foreign('id_pessoa')->references('id_pessoa')->on('inf_pessoas');
             $table->timestamps();
             $table->softDeletes();

@@ -13,16 +13,16 @@ class CreateConfUsuariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('conf_usuario', function (Blueprint $table) {
+        Schema::create('conf_usuarios', function (Blueprint $table) {
             $table->unsignedInteger('id_pessoa');
-            $table->unsignedInteger('id_perfil');
+            $table->integer('id_perfil')->nullable();
             $table->string('usuario');
-            $table->string('senha');
-            $table->datetime('dt_expiracao');
-            $table->enum('status', ['A', 'B']);
-            $table->primary(['id_pessoa', 'id_perfil']);
+            $table->string('senha')->nullable();
+            $table->datetime('dt_expiracao')->nullable();
+            $table->enum('status', ['A', 'B'])->nullable();
+            $table->primary('id_pessoa');
             $table->foreign('id_pessoa')->references('id_pessoa')->on('inf_pessoas');
-            $table->foreign('id_perfil')->references('id_perfil')->on('conf_perfil');
+//            $table->foreign('id_perfil')->references('id_perfil')->on('conf_perfil');
             $table->timestamps();
         });
     }
@@ -34,6 +34,6 @@ class CreateConfUsuariosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('conf_usuario');
+        Schema::dropIfExists('conf_usuarios');
     }
 }

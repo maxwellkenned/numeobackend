@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace numeo\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

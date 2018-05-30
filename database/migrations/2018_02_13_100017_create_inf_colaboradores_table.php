@@ -16,16 +16,16 @@ class CreateInfColaboradoresTable extends Migration
         Schema::create('inf_colaboradores', function (Blueprint $table) {
             $table->increments('id_colaborador');
             $table->unsignedInteger('id_pessoa');
-            $table->unsignedInteger('id_empresa');
-            $table->unsignedInteger('id_funcao');
-            $table->integer('id_conjuge');
-            $table->date('dt_admissao');
-            $table->double('salario', 8, 2);
-            $table->string('clt');
-            $table->string('clt_serie');
-            $table->string('clt_pis');
-            $table->string('inf_escolaridade');
-            $table->enum('frequencia_pagamento', ['H', 'D', 'S', 'M']);
+            $table->unsignedInteger('id_empresa')->default(1);
+            $table->unsignedInteger('id_funcao')->nullable();
+            $table->integer('id_conjuge')->nullable();
+            $table->date('dt_admissao')->nullable();
+            $table->double('salario', 8, 2)->nullable();
+            $table->string('clt')->nullable();
+            $table->string('clt_serie')->nullable();
+            $table->string('clt_pis')->nullable();
+            $table->string('inf_escolaridade')->nullable();
+            $table->enum('frequencia_pagamento', ['H', 'D', 'S', 'M'])->nullable();
             $table->foreign('id_pessoa')->references('id_pessoa')->on('inf_pessoas');
             $table->foreign('id_empresa')->references('id_empresa')->on('inf_empresas');
             $table->foreign('id_funcao')->references('id_funcao')->on('funcoes');

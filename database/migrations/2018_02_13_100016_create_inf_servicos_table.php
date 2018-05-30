@@ -15,9 +15,9 @@ class CreateInfServicosTable extends Migration
     {
         Schema::create('inf_servicos', function (Blueprint $table) {
             $table->increments('id_servico');
-            $table->unsignedInteger('id_empresa');
+            $table->unsignedInteger('id_empresa')->default(1);
             $table->string('ds_servico');
-            $table->double('vl_servico', 8, 2);
+            $table->double('vl_servico', 8, 2)->nullable();
             $table->foreign('id_empresa')->references('id_empresa')->on('inf_empresas');
             $table->timestamps();
             $table->softDeletes();

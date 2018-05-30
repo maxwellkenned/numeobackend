@@ -17,12 +17,12 @@ class CreateInfVendasServicosTable extends Migration
             $table->increments('id_venda');
             $table->unsignedInteger('id_cliente');
             $table->unsignedInteger('id_vendedor');
-            $table->unsignedInteger('id_empresa');
-            $table->dateTime('dt_venda');
+            $table->unsignedInteger('id_empresa')->default(1);
+            $table->dateTime('dt_venda')->default(now());
             $table->double('vl_venda');
-            $table->double('vl_desconto');
-            $table->double('pc_desconto');
-            $table->string('obs');
+            $table->double('vl_desconto')->nullable();
+            $table->double('pc_desconto')->nullable();
+            $table->string('obs')->nullable();
             $table->foreign('id_cliente')->references('id_cliente')->on('inf_clientes');
             $table->foreign('id_vendedor')->references('id_colaborador')->on('inf_colaboradores');
             $table->foreign('id_empresa')->references('id_empresa')->on('inf_empresas');

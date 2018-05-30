@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace numeo\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 
-use App\Models\inf_pessoas as Pessoa;
-use App\Models\conf_usuario as Usuario;
-use App\Models\inf_colaboradores as Colaborador;
+use numeo\Models\inf_pessoas as Pessoa;
+use numeo\Models\conf_usuarios as Usuario;
+use numeo\Models\inf_colaboradores as Colaborador;
 
 class ColaboradorController extends Controller{
     /**
