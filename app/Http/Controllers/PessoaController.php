@@ -1,10 +1,10 @@
 <?php
 
-namespace numeo\Http\Controllers;
+namespace Numeo\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use numeo\Models\inf_pessoas as Pessoa;
+use Numeo\Models\inf_pessoas as Pessoa;
 
 class PessoaController extends Controller
 {

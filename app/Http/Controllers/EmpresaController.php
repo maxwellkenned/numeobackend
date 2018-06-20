@@ -1,10 +1,10 @@
 <?php
 
-namespace numeo\Http\Controllers;
+namespace Numeo\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use numeo\Models\inf_empresas as Empresa;
+use Numeo\Models\inf_empresas as Empresa;
 
 class EmpresaController extends Controller
 {

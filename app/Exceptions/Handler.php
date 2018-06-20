@@ -1,6 +1,6 @@
 <?php
 
-namespace numeo\Exceptions;
+namespace Numeo\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;

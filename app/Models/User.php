@@ -1,6 +1,6 @@
 <?php
 
-namespace numeo\Models;
+namespace Numeo\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;

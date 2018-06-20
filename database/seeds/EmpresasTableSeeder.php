@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\inf_empresas as Empresa;
+use Numeo\Models\inf_empresas as Empresa;
 
 class EmpresasTableSeeder extends Seeder
 {

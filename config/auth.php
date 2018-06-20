@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => numeo\User::class,
+            'model' => Numeo\Models\User::class,
         ],
 
         // 'users' => [

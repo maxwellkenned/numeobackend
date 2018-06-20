@@ -1,6 +1,6 @@
 <?php
 
-namespace numeo\Providers;
+namespace Numeo\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -13,7 +13,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'numeo\Model' => 'numeo\Policies\ModelPolicy',
+        'Numeo\Model' => 'Numeo\Policies\ModelPolicy',
     ];
 
     /**

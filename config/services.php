@@ -30,7 +30,7 @@ return [
     ],
 
     'stripe' => [
-        'model' => numeo\User::class,
+        'model' => Numeo\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],

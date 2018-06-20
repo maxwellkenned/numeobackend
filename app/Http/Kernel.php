@@ -1,6 +1,6 @@
 <?php
 
-namespace numeo\Http;
+namespace Numeo\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -16,9 +16,9 @@ class Kernel extends HttpKernel
     protected $middleware = [
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
-        \numeo\Http\Middleware\TrimStrings::class,
+        \Numeo\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
-        \numeo\Http\Middleware\TrustProxies::class,
+        \Numeo\Http\Middleware\TrustProxies::class,
         \Barryvdh\Cors\HandleCors::class,
     ];
 
@@ -29,12 +29,12 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
-            \numeo\Http\Middleware\EncryptCookies::class,
+            \Numeo\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             // \Illuminate\Session\Middleware\AuthenticateSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \numeo\Http\Middleware\VerifyCsrfToken::class,
+            \Numeo\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
 
@@ -58,8 +58,8 @@ class Kernel extends HttpKernel
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
-        'guest' => \numeo\Http\Middleware\RedirectIfAuthenticated::class,
+        'guest' => \Numeo\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'cors' => \numeo\Http\Middleware\Cors::class
+        'cors' => \Numeo\Http\Middleware\Cors::class
     ];
 }

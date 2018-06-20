@@ -1,6 +1,6 @@
 <?php
 
-namespace numeo\Http\Middleware;
+namespace Numeo\Http\Middleware;
 
 use Illuminate\Foundation\Http\Middleware\TrimStrings as Middleware;
 

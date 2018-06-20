@@ -1,8 +1,8 @@
 <?php
 
-namespace numeo\Http\Controllers\Auth;
+namespace Numeo\Http\Controllers\Auth;
 
-use numeo\Http\Controllers\Controller;
+use Numeo\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller

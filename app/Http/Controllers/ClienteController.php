@@ -1,10 +1,10 @@
 <?php
 
-namespace numeo\Http\Controllers;
+namespace Numeo\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use numeo\Models\inf_clientes as Cliente;
+use Numeo\Models\inf_clientes as Cliente;
 
 class ClienteController extends Controller
 {

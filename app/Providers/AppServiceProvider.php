@@ -1,6 +1,6 @@
 <?php
 
-namespace numeo\Providers;
+namespace Numeo\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

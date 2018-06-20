@@ -1,6 +1,6 @@
 <?php
 
-namespace numeo\Http\Middleware;
+namespace Numeo\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;

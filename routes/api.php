@@ -18,3 +18,8 @@ Route::resource('colaboradores', 'ColaboradorController');
 Route::resource('empresas', 'EmpresaController');
 Route::resource('servicos', 'ServicoController');
 Route::resource('clientes', 'ClienteController');
+
+Route::post('auth/login', 'AuthController@login');
+Route::get('auth/login', function(){
+    return 'Auth/login';
+});
